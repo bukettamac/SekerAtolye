@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: 'Jost', sans-serif;
+    color: #2b1d15;
+    background-color: #fdf8f5;
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .hero-kenburns {
+    animation: kenburns 18s ease-out infinite alternate;
+  }
+  @keyframes kenburns {
+    0% { transform: scale(1) translateY(0); }
+    100% { transform: scale(1.08) translateY(-10px); }
+  }
+  .shimmer-bg {
+    background: linear-gradient(90deg, #f3d6c4 0%, #faede4 50%, #f3d6c4 100%);
+    background-size: 200% 100%;
+    animation: shimmer 2.5s linear infinite;
+  }
+  
+  @keyframes gallery-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.gallery-marquee {
+  animation: gallery-marquee 75s linear infinite;
+  will-change: transform;
+}
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+  }
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}
