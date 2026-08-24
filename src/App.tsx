@@ -9,6 +9,18 @@ import Testimonials from '@/components/Testimonials';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import type { Cake } from '@/types';
+import { NexusTopbar } from './components/NexusTopbar';
+
+function App() {
+  return (
+    <>
+      <NexusTopbar />
+      {/* Mevcut kodlarınız burada aynen kalır */}
+    </>
+  );
+}
+
+export default App;
 
 export default function App() {
   const [selectedCake, setSelectedCake] = useState<Cake | null>(null);
