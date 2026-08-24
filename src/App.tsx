@@ -10,18 +10,7 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 import type { Cake } from '@/types';
 import { NexusTopbar } from './components/NexusTopbar';
-
-function App() {
-  return (
-    <>
-      <NexusTopbar />
-      {/* Mevcut kodlarınız burada aynen kalır */}
-    </>
-  );
-}
-
-export default App;
-
+ 
 export default function App() {
   const [selectedCake, setSelectedCake] = useState<Cake | null>(null);
   const [showTop, setShowTop] = useState(false);
@@ -38,6 +27,26 @@ export default function App() {
   };
 
   return (
+    export default function App() {
+  // 1. BÜTÜN CONST TANIMLAMALARI BURADA DURUR
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  // 2. EĞER BİR IF/RETURN VARSA ONUN İÇİNE KOYULMAZ
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  // 3. EN SON ANA RETURN'ÜN TAM İÇİNE EN ÜSTE EKLENİR
+  return (
+    <>
+      <NexusTopbar /> {/* <--- TAM BURAYA */}
+      <div className="min-h-screen ...">
+        {/* Diğer kodlar */}
+      </div>
+    </>
+  );
+}
     <div className="min-h-screen bg-rosewater-50">
       <Navbar />
       <main>
